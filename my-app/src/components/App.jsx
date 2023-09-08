@@ -1,15 +1,26 @@
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
-import { Header } from "./modules/Header";
-import { Footer } from "./modules/Footer";
-import { Home } from "./modules/Home";
+import { Header } from "./header/Header";
+import { Footer } from "./footer/Footer";
+import { Home } from "./home/Home";
+import { Subscription } from "./subscription/Subscription";
+import { Mission } from "./mission/Mission";
+import { Feature } from "./feature/Feature";
+import { ThemeFlagProvider } from "./feature/provider/ThemeFlag";
 
 export const App = () => {
     return (
         <>
             <GlobalStyle />
             <Header />
-            <Home />
+            <main>
+                <Home />
+                <ThemeFlagProvider>
+                    <Feature />
+                </ThemeFlagProvider>
+                <Mission />
+            </main>
+            <Subscription />
             <Footer />
         </>
     )
@@ -35,4 +46,4 @@ a {
 img {
     max-width: 100%;
 }
-`
+`;
