@@ -16,6 +16,7 @@ export const Title = (props) => {
 };
 
 const SSection = styled.section`
+    
 `;
 
 const SH2 = styled.h2`

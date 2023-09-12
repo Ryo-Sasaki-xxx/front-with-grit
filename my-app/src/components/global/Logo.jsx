@@ -1,12 +1,15 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Logo = (props) => {
     const { src } = props;
     return (
         <h1>
-            <SA href="index.html">
-                <SImg src={src} alt="with GRIT Logo" />
-            </SA>
+            <Link to="/with-grit/subscription/">
+                <SA >
+                    <SImg src={src} alt="with GRIT Logo" />
+                </SA>
+            </Link>
         </h1>
     )
 };

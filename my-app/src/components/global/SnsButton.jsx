@@ -4,8 +4,8 @@ export const SnsButton = (props) => {
     const { instagram, x, width } = props;
     return (
         <SDiv width={width}>
-            <SA href="index.jsx" target="_blank" ><SImg src={instagram} alt="isntagramリンク" /></SA>
-            <SA href="index.jsx" target="_blank"><SImg src={x} alt="xリンク" /></SA>
+            <SA href="https://www.instagram.com/" target="_blank"><SImg src={instagram} alt="isntagramリンク" /></SA>
+            <SA href="https://www.instagram.com/" target="_blank"><SImg src={x} alt="xリンク" /></SA>
         </SDiv>
     )
 };
@@ -28,5 +28,6 @@ const SImg = styled.img`
     vertical-align: middle;
     &:hover {
         opacity: 0.5;
+    }
     }
 `;

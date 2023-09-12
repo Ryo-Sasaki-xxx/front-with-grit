@@ -27,4 +27,5 @@ const SA = styled.a`
     &:hover {
         opacity: 0.9;
     }
+    }
 `;

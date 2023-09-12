@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Article = (props) => {
+    const { isDark } = props;
     return (
-        <SArticle>
+        <SArticle isDark={isDark}>
             {props.children}
         </SArticle>
     );
@@ -10,9 +11,10 @@ export const Article = (props) => {
 
 const SArticle = styled.article`
     font-size: 1.75rem;
-    color: #fff;
+    color: ${props => props.isDark ? "#333" : "#fff"};
     margin: 1rem 0 0 0;
     text-align: justify;
     text-justify: inter-ideograph; 
+    word-wrap: break-word;
 `;
 

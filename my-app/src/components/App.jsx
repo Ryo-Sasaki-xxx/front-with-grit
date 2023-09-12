@@ -1,27 +1,44 @@
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+} from "react-router-dom";
+
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
-import { Header } from "./header/Header";
-import { Footer } from "./footer/Footer";
-import { Home } from "./home/Home";
-import { Subscription } from "./subscription/Subscription";
-import { Mission } from "./mission/Mission";
-import { Feature } from "./feature/Feature";
-import { ThemeFlagProvider } from "./feature/provider/ThemeFlag";
+
+import { HomePage } from "./HomePage";
+import { HaveSubscriptionPage } from "./HaveSubscriptionPage";
+
+import { Index } from "./index-page/Index";
+import { Feature } from "./feature-page/Feature";
+import { Mission } from "./mission-page/Mission";
+import { Help } from "./help-page/Help";
+import { Hire } from "./hire-page/Hire";
+import { PrivacyPolicy } from "./privacy-policy-page/PrivacyPolicy";
+import { NotFoundPage } from "./NotFoundPage";
+
 
 export const App = () => {
     return (
         <>
             <GlobalStyle />
-            <Header />
-            <main>
-                <Home />
-                <ThemeFlagProvider>
-                    <Feature />
-                </ThemeFlagProvider>
-                <Mission />
-            </main>
-            <Subscription />
-            <Footer />
+            <Router>
+                <Routes>
+                    <Route path="/with-grit" element={<HomePage />}>
+                        <Route path="subscription" element={<HaveSubscriptionPage />}>
+                            <Route path="" element={<Index />} />
+                            <Route path="feature" element={<Feature />} />
+                            <Route path="mission" element={<Mission />} />
+                        </Route>
+                        <Route path="help" element={<Help />} />
+                        <Route path="hire" element={<Hire />} />
+                        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+                        <Route path="*" element={<NotFoundPage />} />
+                    </Route>
+                </Routes>
+
+            </Router>
         </>
     )
 };
