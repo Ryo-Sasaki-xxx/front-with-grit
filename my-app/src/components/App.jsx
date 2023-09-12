@@ -18,6 +18,8 @@ import { Hire } from "./hire-page/Hire";
 import { PrivacyPolicy } from "./privacy-policy-page/PrivacyPolicy";
 import { NotFoundPage } from "./NotFoundPage";
 
+import { AppPage } from "./app-page/AppPage";
+
 
 export const App = () => {
     return (
@@ -35,6 +37,9 @@ export const App = () => {
                         <Route path="hire" element={<Hire />} />
                         <Route path="privacy-policy" element={<PrivacyPolicy />} />
                         <Route path="*" element={<NotFoundPage />} />
+                    </Route>
+                    <Route path="/with-grit-app" element={<AppPage />}>
+
                     </Route>
                 </Routes>
 

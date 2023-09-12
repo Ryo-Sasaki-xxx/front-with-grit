@@ -5,7 +5,7 @@ import { Logo } from "../Logo";
 export const FooterContentUpside = () => {
     return (
         <SDiv>
-            <Logo src="/with-grit-logo-white.svg" />
+            <Logo src="/with-grit-logo-white.svg" width="7rem" link="/with-grit/subscription" />
             <FooterNav />
         </SDiv>
     )
