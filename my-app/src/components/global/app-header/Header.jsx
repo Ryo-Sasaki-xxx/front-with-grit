@@ -10,8 +10,6 @@ export const Header = () => {
 };
 
 const SHeader = styled.header`
-    position: sticky;
-    z-index: 999;
     top: 0;
     left: 0;
     width: 100%;
@@ -20,4 +18,6 @@ const SHeader = styled.header`
     margin: 0;
     display: flex;
     justify-content: center;
+    height: 5rem;
+    background: #fff;
 `;

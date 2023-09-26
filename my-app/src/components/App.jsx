@@ -1,5 +1,5 @@
 import {
-    BrowserRouter as Router,
+    BrowserRouter,
     Routes,
     Route,
 } from "react-router-dom";
@@ -10,7 +10,7 @@ import { createGlobalStyle } from "styled-components";
 import { HomePage } from "./HomePage";
 import { HaveSubscriptionPage } from "./HaveSubscriptionPage";
 
-import { Index } from "./index-page/Index";
+import { Index } from "./home-page/Index";
 import { Feature } from "./feature-page/Feature";
 import { Mission } from "./mission-page/Mission";
 import { Help } from "./help-page/Help";
@@ -18,17 +18,23 @@ import { Hire } from "./hire-page/Hire";
 import { PrivacyPolicy } from "./privacy-policy-page/PrivacyPolicy";
 import { NotFoundPage } from "./NotFoundPage";
 
-import { AppPage } from "./app-page/AppPage";
+import { LoginSigninPage } from "./LoginSigninPage";
+import { Login } from "./login-signin-page/Login";
+import { Signin } from "./login-signin-page/Signin";
+import { Test } from "./Test";
+
+import { AppPage } from "./AppPage";
+import { GoalTask } from "./app-goal-and-task/GoalTask";
 
 
 export const App = () => {
     return (
         <>
             <GlobalStyle />
-            <Router>
+            <BrowserRouter>
                 <Routes>
-                    <Route path="/with-grit" element={<HomePage />}>
-                        <Route path="subscription" element={<HaveSubscriptionPage />}>
+                    <Route path="/" element={<HomePage />}>
+                        <Route path="" element={<HaveSubscriptionPage />}>
                             <Route path="" element={<Index />} />
                             <Route path="feature" element={<Feature />} />
                             <Route path="mission" element={<Mission />} />
@@ -36,14 +42,17 @@ export const App = () => {
                         <Route path="help" element={<Help />} />
                         <Route path="hire" element={<Hire />} />
                         <Route path="privacy-policy" element={<PrivacyPolicy />} />
-                        <Route path="*" element={<NotFoundPage />} />
                     </Route>
-                    <Route path="/with-grit-app" element={<AppPage />}>
-
+                    <Route path="/app" element={<AppPage />}>
+                        <Route path="" element={<GoalTask />} />
                     </Route>
+                    <Route path="/log-in" element={<LoginSigninPage />}>
+                        <Route path="" element={<Login />} />
+                        <Route path="sign-in" element={<Signin />} />
+                    </Route>
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
-
-            </Router>
+            </BrowserRouter>
         </>
     )
 };

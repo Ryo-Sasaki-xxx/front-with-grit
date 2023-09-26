@@ -7,7 +7,7 @@ import { SignButton } from "../SignButton";
 export const HeaderContent = () => {
     return (
         <SDiv>
-            <Logo src="/with-grit-logo-dark.svg" width="7rem" link="/with-grit/subscription/" />
+            <Logo src="/with-grit-logo-dark.svg" width="7rem" link="/" />
             <HeaderNav />
             <SnsButton instagram="/instagram-dark.svg" x="/x-dark.svg" width="12rem" />
             <SignButton />

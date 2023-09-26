@@ -1,5 +1,5 @@
 import { MainWrapper } from "./MainWrapper";
-import { ThemeFlagProvider } from "../index-page/feature/provider/ThemeFlag";
+import { ThemeFlagProvider } from "../home-page/feature/provider/ThemeFlag";
 
 import { styled } from "styled-components";
 

@@ -4,21 +4,28 @@ import { Link } from "react-router-dom";
 export const Logo = (props) => {
     const { src, width, link } = props;
     return (
-        <h1>
-            <Link to={link}>
-                <SA >
-                    <SImg src={src} width={width} alt="with GRIT Logo" />
-                </SA>
-            </Link>
-        </h1>
+        <SH1 width={width}>
+            <SA to={link} >
+                <SImg src={src} alt="with GRIT Logo" />
+            </SA>
+        </SH1>
     )
 };
 
-const SA = styled.a`
+const SH1 = styled.h1`
+    width: ${props => props.width};
     display:block;
 `;
 
+const SA = styled(Link)`
+    display:block;
+    height: 100%;
+    width:100%
+    
+`;
+
 const SImg = styled.img`
-    width: ${props => props.width};
+    height:100%;
+    max-width: 100%;
     vertical-align: middle;
 `;

@@ -3,7 +3,6 @@ import { FooterContentUpside } from "./FooterContentUpside";
 import { FooterContentDownside } from "./FooterContentDownside";
 
 export const Footer = () => {
-    console.log("rendered Footer");
 
     return (
         <SFooter>

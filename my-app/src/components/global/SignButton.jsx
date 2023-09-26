@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const SignButton = () => {
     return (
         <SDiv>
-            <SA href="sign-in.html">サインイン</SA>
+            <SA to="/log-in">ログイン</SA>
         </SDiv >
     )
 };
@@ -14,7 +15,7 @@ const SDiv = styled.div`
     justify-content: center
 `;
 
-const SA = styled.a`
+const SA = styled(Link)`
     display: block;
     width: 11rem;
     height: 4rem;
@@ -27,5 +28,5 @@ const SA = styled.a`
     &:hover {
         opacity: 0.9;
     }
-    }
+    
 `;

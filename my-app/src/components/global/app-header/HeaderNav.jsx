@@ -7,19 +7,19 @@ export const HeaderNav = () => {
         <SNav>
             <SUl>
                 <Sli>
-                    <Link to="/with-grit/subscription/feature">
-                        <SA> 機能</SA>
-                    </Link>
+                    <SA to="/app">
+                        Goal & Task
+                    </SA>
                 </Sli>
                 <Sli>
-                    <Link to="/with-grit/subscription/mission">
-                        <SA> ミッション</SA>
-                    </Link>
+                    <SA to="/app/if-then">
+                        if-then スケジュール
+                    </SA>
                 </Sli>
                 <Sli>
-                    <Link to="/with-grit/help">
-                        <SA> ヘルプセンター</SA>
-                    </Link>
+                    <SA to="/app/feed-back">
+                        フィードバック
+                    </SA>
                 </Sli>
             </SUl>
         </SNav>
@@ -27,6 +27,8 @@ export const HeaderNav = () => {
 };
 
 const SNav = styled.nav`
+    flex-grow:1;
+    
     display:flex;
     align-items: center;
 `;
@@ -35,18 +37,17 @@ const SUl = styled.ul`
     display: flex;
     padding: 0 1rem;
     list-style: none;
-    a {
-        font-size: 1.25rem;
-        color: #333;
-    }
 `;
 
 const Sli = styled.li`
     margin: 0 1rem;
 `;
 
-const SA = styled.a`
+const SA = styled(Link)`
+    font-size: 1.25rem;
+    color: #333;
     &:hover {
         opacity: 0.5;
     }
 `;
+

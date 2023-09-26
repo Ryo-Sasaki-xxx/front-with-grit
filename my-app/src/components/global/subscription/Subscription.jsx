@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { SubscriptionContent } from "./SubsriptionContent";
 
 export const Subscription = () => {
-    console.log("rendered Subscription");
     return (
         <SDiv>
             <SubscriptionContent />

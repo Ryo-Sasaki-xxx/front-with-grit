@@ -7,28 +7,22 @@ export const FooterNav = () => {
         <SNav>
             <SUl>
                 <Sli>
-                    <Link to="/with-grit/help">
-                        <SA>
-                            <SP fontSize="1.25rem">ヘルプセンター</SP>
-                            <SP fontSize="1rem">お困りごとがございましたらお問い合わせください。</SP>
-                        </SA>
-                    </Link>
+                    <SA to="/help">
+                        <SP fontSize="1.25rem">ヘルプセンター</SP>
+                        <SP fontSize="1rem">お困りごとがございましたらお問い合わせください。</SP>
+                    </SA>
                 </Sli>
                 <Sli>
-                    <Link to="/with-grit/hire">
-                        <SA>
-                            <SP fontSize="1.25rem">募集</SP>
-                            <SP fontSize="1rem">with GRIT のメンバー募集情報が確認できます。</SP>
-                        </SA>
-                    </Link>
+                    <SA to="/hire">
+                        <SP fontSize="1.25rem">募集</SP>
+                        <SP fontSize="1rem">with GRIT のメンバー募集情報が確認できます。</SP>
+                    </SA>
                 </Sli>
                 <Sli>
-                    <Link to="/with-grit/privacy-policy">
-                        <SA>
-                            <SP fontSize="1.25rem">プライバシーポリシー</SP>
-                            <SP fontSize="1rem">with GRIT における利用情報とその取り扱いについての説明ページです。</SP>
-                        </SA>
-                    </Link>
+                    <SA to="/privacy-policy">
+                        <SP fontSize="1.25rem">プライバシーポリシー</SP>
+                        <SP fontSize="1rem">with GRIT における利用情報とその取り扱いについての説明ページです。</SP>
+                    </SA>
                 </Sli>
             </SUl>
         </SNav>
@@ -54,7 +48,7 @@ const Sli = styled.li`
     margin: 0 0 0 2rem;
 `;
 
-const SA = styled.a`
+const SA = styled(Link)`
     display:block;
     &:hover {
         opacity: 0.5;
@@ -64,4 +58,5 @@ const SA = styled.a`
 const SP = styled.p`
     font-size: ${props => props.fontSize};
     max-width: 19rem;
+    
 `;

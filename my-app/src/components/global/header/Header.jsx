@@ -2,7 +2,6 @@ import { styled } from "styled-components";
 import { HeaderContent } from "./HeaderContent";
 
 export const Header = () => {
-    console.log("rendered Header");
 
     return (
         <SHeader>
