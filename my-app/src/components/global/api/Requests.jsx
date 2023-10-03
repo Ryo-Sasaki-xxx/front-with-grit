@@ -6,4 +6,5 @@ export const Requests = {
     goalEndPoint: `/goals/`,
     taskEndPoint: `/tasks/`,
     ifThenEndPoint: `/if-then/`,
+    help: `/help/`,
 };

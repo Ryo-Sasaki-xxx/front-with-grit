@@ -33,7 +33,7 @@ export const Signin = () => {
         delete data["password_repeat"];
         signIn(JSON.stringify(data));
     };
-    let emailUniqueError = statusCode.code === 400 ? "このパスワードは既に使われています。" : false;
+    let emailError = statusCode.code === 400 ? "無効なメールアドレスです。" : false;
 
     useEffect(() => {
         if (statusCode.code === 201) {
@@ -45,8 +45,8 @@ export const Signin = () => {
         let result;
         if (formState.errors.email) {
             result = formState.errors.email.message;
-        } else if (emailUniqueError) {
-            result = emailUniqueError;
+        } else if (emailError) {
+            result = emailError;
         }
         return result;
     }
@@ -58,7 +58,7 @@ export const Signin = () => {
                     with Grit でやり抜く力を手に入れよう
                 </SH2>
             </SSection>
-            <SForm >
+            <SForm noValidate>
                 <SInputName
                     type="text"
                     placeholder="お名前"
