@@ -16,11 +16,6 @@ export const HeaderNav = () => {
                         if-then スケジュール
                     </SA>
                 </Sli>
-                <Sli>
-                    <SA to="/app/feed-back">
-                        フィードバック
-                    </SA>
-                </Sli>
             </SUl>
         </SNav>
     )

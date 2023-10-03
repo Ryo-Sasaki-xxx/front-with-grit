@@ -7,20 +7,42 @@ import { CreateButton } from "./CreateButton";
 
 export const Operation = () => {
     const { activeGoalState, setActiveGoalState } = useContext(GoalStateContext);
-    const onClick = (GoalState) => {
-        const afterChange = [...activeGoalState];
-        afterChange[GoalState] = !activeGoalState[GoalState];
-        setActiveGoalState(afterChange);
-    }
-
+    console.log(activeGoalState)
     return (
         <>
             <SDiv>
                 <SDiv2>
                     <SH2 >Goal & Task</SH2>
-                    <CheckBox activeGoalState={activeGoalState[0]} background={"#333"} onClick={() => onClick(0)} content={"working"} />
-                    <CheckBox activeGoalState={activeGoalState[1]} background={"#C147E9"} onClick={() => onClick(1)} content={"completed"} />
-                    <CheckBox activeGoalState={activeGoalState[2]} background={"#989898"} onClick={() => onClick(2)} content={"waiting"} />
+                    <CheckBox
+                        activeGoalState={activeGoalState[1]}
+                        background={"#333"}
+                        onClick={() => setActiveGoalState((activeGoalState => {
+                            const activeGoalStateCopy = [...activeGoalState];
+                            activeGoalStateCopy[1] = !activeGoalStateCopy[1];
+                            return activeGoalStateCopy;
+                        }))}
+                        content={"working"}
+                    />
+                    <CheckBox
+                        activeGoalState={activeGoalState[2]}
+                        background={"#C147E9"}
+                        onClick={() => setActiveGoalState((activeGoalState => {
+                            const activeGoalStateCopy = [...activeGoalState];
+                            activeGoalStateCopy[2] = !activeGoalStateCopy[2];
+                            return activeGoalStateCopy;
+                        }))}
+                        content={"completed"}
+                    />
+                    <CheckBox
+                        activeGoalState={activeGoalState[0]}
+                        background={"#989898"}
+                        onClick={() => setActiveGoalState((activeGoalState => {
+                            const activeGoalStateCopy = [...activeGoalState];
+                            activeGoalStateCopy[0] = !activeGoalStateCopy[0];
+                            return activeGoalStateCopy;
+                        }))}
+                        content={"waiting"}
+                    />
                     <CreateButton />
                 </SDiv2>
             </SDiv>

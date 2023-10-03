@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Logo } from "../Logo";
 import { HeaderNav } from "./HeaderNav";
-import { SubMenue } from "./SubMenue";
+// import { SubMenue } from "./SubMenue";
+import { Logout } from "./Logout";
 
 
 export const HeaderContent = () => {
@@ -11,7 +12,7 @@ export const HeaderContent = () => {
         <SDiv>
             <Logo src="/with-grit-logo-dark.svg" width="" link="/app" />
             <HeaderNav />
-            <SubMenue />
+            <Logout />
         </SDiv>
     )
 };

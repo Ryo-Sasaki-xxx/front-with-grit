@@ -21,10 +21,10 @@ import { NotFoundPage } from "./NotFoundPage";
 import { LoginSigninPage } from "./LoginSigninPage";
 import { Login } from "./login-signin-page/Login";
 import { Signin } from "./login-signin-page/Signin";
-import { Test } from "./Test";
 
 import { AppPage } from "./AppPage";
 import { GoalTask } from "./app-goal-and-task/GoalTask";
+import { IfThen } from "./app-if-then-page/IfThen";
 
 
 export const App = () => {
@@ -45,6 +45,7 @@ export const App = () => {
                     </Route>
                     <Route path="/app" element={<AppPage />}>
                         <Route path="" element={<GoalTask />} />
+                        <Route path="if-then" element={<IfThen />} />
                     </Route>
                     <Route path="/log-in" element={<LoginSigninPage />}>
                         <Route path="" element={<Login />} />

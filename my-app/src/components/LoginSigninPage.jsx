@@ -6,6 +6,7 @@ import { LoginSigninFooter } from "./login-signin-page/LoginSigninFooter";
 
 
 export const LoginSigninPage = () => {
+    console.log("login-signin")
     return (
         <>
             <SDiv>

@@ -1,8 +1,71 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+import axios from "../global/api/axios";
+import { Requests } from "../global/api/Requests";
+
+import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export const Login = () => {
+    const [statusCode, setStatusCode] = useState({
+        code: false,
+        error: false,
+    });
+
+    const getAuth = async (data) => {
+        try {
+            let response = await axios.post(Requests.getAuth, data,);
+            localStorage.setItem("jwt-access", response.data.access);
+            localStorage.setItem("jwt-refresh", response.data.refresh);
+            setStatusCode({
+                code: response.status,
+                error: false,
+            });
+        } catch (e) {
+            let response = e.response;
+            setStatusCode({
+                code: response.status,
+                error: true,
+            });
+        }
+    };
+
+
+
+    const { register, formState, handleSubmit, setValue, } = useForm({});
+    const onSubmit = (data) => {
+        getAuth(JSON.stringify(data))
+    };
+
+    const location = useLocation();
+    useEffect(() => {
+        if (location.state) {
+            setValue("email", location.state.email)
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (statusCode.code === 200) {
+            navigate("/app")
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [statusCode]);
+
+    let passwordError = statusCode.error ? "メールアドレスまたはパスワードが正しくありません。" : false;
+    const passwordErrorGenerator = () => {
+        let result;
+        if (formState.errors.password) {
+            result = formState.errors.password.message;
+        } else if (passwordError) {
+            result = passwordError;
+        }
+        return result;
+    }
+
     return (
         <SDiv>
             <SSection>
@@ -10,14 +73,30 @@ export const Login = () => {
                     with Grit でやり抜く力を手に入れよう
                 </SH2>
             </SSection>
-            <SForm>
-                <SInputEmail type="email" placeholder="メールアドレス" />
-                <SInputPassword type="password" placeholder="パスワード" />
-                <SInputSubmit type="submit" value="ログイン" />
+            <SForm onSubmit={e => e.preventDefault()}>
+                <SInputEmail
+                    type="email"
+                    placeholder="メールアドレス"
+                    {...register("email", {
+                        required: "メールアドレスが未入力です。",
+                    })}
+                />
+                <SP>{formState.errors.email && formState.errors.email.message}</SP>
+                <SInputPassword
+                    type="password"
+                    placeholder="パスワード"
+                    {...register("password", {
+                        required: "パスワードが未入力です。",
+                    })}
+                />
+                <SP>{passwordErrorGenerator()}</SP>
+                <SDiv2>
+                    <SInputSubmit type="submit" value="ログイン" onClick={handleSubmit(onSubmit)} />
+                    <SA to="/log-in/sign-in">
+                        アカウントの新規作成はこちら
+                    </SA>
+                </SDiv2>
             </SForm>
-            <SA to="/log-in/sign-in">
-                アカウントの新規作成はこちら
-            </SA>
         </SDiv>
     );
 };
@@ -58,7 +137,6 @@ const SInputEmail = styled.input`
 
 const SInputPassword = styled.input`
     background: #fff;
-    margin: 2rem 0rem;
     color: rgba(33,42,62,5);
     border-radius: 15px;
     height: 3.5rem;
@@ -68,9 +146,21 @@ const SInputPassword = styled.input`
     }
 `;
 
+const SP = styled.p`
+    height: 2rem;
+    font-size: 1rem;
+    padding-left: 0.5rem;
+`;
+
+const SDiv2 = styled.div`
+    margin-top: 0.5rem;
+    margin-bottom: 12rem;
+    display: flex;
+    align-items:center;
+`;
+
 const SInputSubmit = styled.input`
     width: 35%;
-    margin-bottom: 1rem;
     background: #333;
     color: #fff;
     border-radius: 15px;
@@ -82,11 +172,11 @@ const SInputSubmit = styled.input`
     }
 `;
 
+
 const SA = styled(Link)`
-    margin-top: 2rem;
-    margin-bottom: 4.5rem;
+    margin-left: 2rem;
     color: #fff;
-    font-size: 1.75rem;
+    font-size: 1rem;
     &:hover {
         opacity: 0.5;
     }

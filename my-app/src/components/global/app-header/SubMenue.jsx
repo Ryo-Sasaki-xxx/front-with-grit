@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { useState } from "react";
-
+import { Logout } from "./Logout";
 
 export const SubMenue = () => {
     const [activeSubmenu, setActiveSubmenu] = useState(0);
@@ -32,8 +32,12 @@ export const SubMenue = () => {
                     </Sli>
                 </SUl>
             </SNav>
-            <SDivInfo activeSubmenu={activeSubmenu}></SDivInfo>
-            <SDivProf activeSubmenu={activeSubmenu}></SDivProf>
+            <SDivInfo activeSubmenu={activeSubmenu}>
+
+            </SDivInfo>
+            <SDivProf activeSubmenu={activeSubmenu}>
+                <Logout />
+            </SDivProf>
         </>
     )
 };
@@ -83,9 +87,6 @@ const SDivInfo = styled.div`
 
 const SDivProf = styled.div`
     display:${props => props.activeSubmenu === 2 ? null : "none"};
-    width: 1rem;
-    height: 1rem;
-    background: blue;
     position: fixed;
     top: 5.5rem;
     right: 0rem;

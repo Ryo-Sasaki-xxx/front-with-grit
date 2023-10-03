@@ -6,13 +6,13 @@ import { useEffect, } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form } from "./Form";
 
-import { GoalAndTaskContext } from "./provider/GoalAndTask";
-import { GoalStateContext } from "./provider/GoalState";
-import { ActiveGoalContext } from "./provider/ActiveGoal";
+import { IfThenContext } from "./provider/IfThen";
+import { ActiveIfThenContext } from "./provider/ActiveIfThen";
 import { useContext } from "react";
 
 
 export const FormContainer = (props) => {
+    console.log("render container")
     const navigate = useNavigate();
     if (localStorage.getItem("jwt-access") === null) {
         navigate("/log-in")
@@ -23,49 +23,67 @@ export const FormContainer = (props) => {
                 "JWT " + localStorage.getItem("jwt-access"),
         },
     };
-    const { goalAndTask, setGoalAndTask } = useContext(GoalAndTaskContext);
-    const getGoalAndTask = async () => {
+    const { ifThen, setIfThen } = useContext(IfThenContext);
+    const getIfThen = async () => {
         try {
             let response = await axios.get(Requests.getGoalAndTask, config);
-            setGoalAndTask({
+            const ifThenList = [];
+            if (response.data.length !== 0) {
+                response.data.forEach((goalAndTask) => {
+                    goalAndTask.task_set.forEach((task_set) => {
+                        ifThenList.push(task_set);
+                    })
+                })
+            } else { }
+
+            setIfThen({
                 statusCode: response.status,
-                goalAndTaskList: response.data,
+                ifThenList: ifThenList
             });
-            setActiveGoal(Array(response.data.length).fill(false))
+            if (ifThenList.length !== 0) {
+                setActiveIfThen(Array(ifThenList.length).fill(false))
+            } else {
+                //passs
+            }
         } catch (e) {
             let response = e.response;
-            setGoalAndTask({
+            setIfThen({
                 statusCode: response.status,
-                goalAndTaskList: [],
+                ifThenList: [],
             });
         }
     };
     useEffect(() => {
-        getGoalAndTask();
+        getIfThen();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
-        if (goalAndTask.statusCode == 401) {
+        if (ifThen.statusCode == 401) {
             navigate("/log-in");
         }
-        console.log(goalAndTask);
+        console.log(ifThen);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [goalAndTask]);
+    }, [ifThen]);
 
-    const { activeGoal, setActiveGoal } = useContext(ActiveGoalContext);
+    useEffect(() => {
+        console.log("active changed!!");
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [activeIfThen]);
+
+    const { activeIfThen, setActiveIfThen } = useContext(ActiveIfThenContext);
 
     const formList = [];
-    const { activeGoalState, setActiveGoalState } = useContext(GoalStateContext);
-    if (goalAndTask.goalAndTaskList.length !== 0) {
-        goalAndTask.goalAndTaskList.forEach((goalAndTask, index) => {
-            if (activeGoalState[Number(goalAndTask.status)]) {
-                formList.push(
-                    <Form setActiveGoal={setActiveGoal} key={goalAndTask.id} index={index} isActive={activeGoal[index]} goalAndTask={goalAndTask} setGoalAndTask={setGoalAndTask} />
-                );
-            }
+    console.log(ifThen)
+    if (ifThen.ifThenList.length !== 0) {
+        ifThen.ifThenList.forEach((ifThen, index) => {
+            console.log(ifThen);
+            formList.push(
+                <Form setActiveIfThen={setActiveIfThen} key={ifThen.if_then_id} index={index} isActive={activeIfThen[index]} ifThen={ifThen} setIfThen={setIfThen} />
+            );
         })
     }
+    console.log(ifThen);
     return (
         <>
             <SDiv>

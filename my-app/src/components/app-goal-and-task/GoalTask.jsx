@@ -3,15 +3,22 @@ import styled from "styled-components";
 import { GoalStateProvider } from "./provider/GoalState";
 import { Operation } from "./Operation";
 import { FormContainer } from "./FormContainer";
+import { ActiveGoalProvider } from "./provider/ActiveGoal";
+import { GoalAndTaskProvider } from "./provider/GoalAndTask";
 
 export const GoalTask = () => {
     return (
         <>
-            <GoalStateProvider>
-                <Operation />
-            </GoalStateProvider>
-            <SBorder />
-            <FormContainer />
+            <GoalAndTaskProvider>
+                <ActiveGoalProvider>
+                    <GoalStateProvider>
+                        <Operation />
+                        <SBorder />
+                        <FormContainer />
+                    </GoalStateProvider>
+                </ActiveGoalProvider>
+            </GoalAndTaskProvider>
+
         </>
     );
 };
