@@ -1,29 +1,43 @@
 import styled from "styled-components";
+
+import { useContext, useEffect } from "react";
+
 import axios from "../global/api/axios";
 import { Requests } from "../global/api/Requests";
 
-import { useEffect, useState, } from "react";
 import { useNavigate } from "react-router-dom";
-import { Form } from "./Form";
 
 import { GoalAndTaskContext } from "./provider/GoalAndTask";
 import { GoalStateContext } from "./provider/GoalState";
 import { ActiveGoalContext } from "./provider/ActiveGoal";
-import { useContext } from "react";
 
+import { Form } from "./Form";
 
-export const FormContainer = (props) => {
+export const FormContainer = () => {
+    //goal&taskの状態管理する
+    const { goalAndTask, setGoalAndTask } = useContext(GoalAndTaskContext);
+
+    //ログインページへのリダイレクトをする① 未ログイン状態の時
     const navigate = useNavigate();
     if (localStorage.getItem("jwt-access") === null) {
         navigate("/log-in")
     }
+
+    //ログインページへのリダイレクトをする② トークンの期限切れの場合
+    useEffect(() => {
+        if (goalAndTask.statusCode == 401) {
+            navigate("/log-in");
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [goalAndTask]);
+
+    //goal&taskをgetするエントリーポイントを定義、実行
     const config = {
         headers: {
             Authorization:
                 "JWT " + localStorage.getItem("jwt-access"),
         },
     };
-    const { goalAndTask, setGoalAndTask } = useContext(GoalAndTaskContext);
 
     const getGoalAndTask = async () => {
         try {
@@ -46,17 +60,14 @@ export const FormContainer = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    useEffect(() => {
-        if (goalAndTask.statusCode == 401) {
-            navigate("/log-in");
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [goalAndTask]);
-
+    //どのゴールが選択されているのかの状態管理を定義する
     const { activeGoal, setActiveGoal } = useContext(ActiveGoalContext);
 
-    const formList = [];
+    //ゴールのフィルタリングの状態管理を定義する
     const { activeGoalState } = useContext(GoalStateContext);
+
+    //Formコンポーネントを生成
+    const formList = [];
     if (goalAndTask.goalAndTaskList.length !== 0) {
         goalAndTask.goalAndTaskList.forEach((goalAndTask, index) => {
             if (activeGoalState[Number(goalAndTask.status)]) {
@@ -66,6 +77,8 @@ export const FormContainer = (props) => {
             }
         })
     }
+
+
     return (
         <>
             <SDiv>
