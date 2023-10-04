@@ -10,11 +10,9 @@ export const FeatureTheme = () => {
         <SWrapper>
             <SDiv>
                 <Title subtitle="Feature ー"
-                    title="5つのStepで習慣化" />
+                    title="3つのStepで習慣化" />
             </SDiv>
-            <SDiv>
-                <FeatureButton />
-            </SDiv>
+            <FeatureButton />
         </SWrapper>
     )
 };

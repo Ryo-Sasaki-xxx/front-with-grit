@@ -7,9 +7,13 @@ import { FeatureButton } from "./FeatureButton";
 export const MainWrapper = () => {
     return (
         <SDiv>
-            <Title subtitle="Feature ー"
-                title="5つのStepで習慣化" />
-            <FeatureButton />
+            <SDiv2>
+                <SDiv3>
+                    <Title subtitle="Feature ー"
+                        title="3つのStepで習慣化" />
+                </SDiv3>
+                <FeatureButton />
+            </SDiv2>
             <MainContent />
         </SDiv>
     );
@@ -21,4 +25,13 @@ const SDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+`;
+
+const SDiv2 = styled.div`
+    display: flex;
+    width: 100%;
+`;
+
+const SDiv3 = styled.div`
+    width: 50%;
 `;

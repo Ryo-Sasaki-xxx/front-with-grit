@@ -4,7 +4,7 @@ import { Requests } from "../global/api/Requests";
 
 import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 
 
 export const Signin = () => {
@@ -24,7 +24,7 @@ export const Signin = () => {
 
     };
 
-    const { register, formState, handleSubmit, watch, getValues } = useForm({});
+    const { register, formState, handleSubmit, watch, setValue } = useForm({});
 
     const password = useRef({});
     password.current = watch("password", "");
@@ -33,6 +33,15 @@ export const Signin = () => {
         delete data["password_repeat"];
         signIn(JSON.stringify(data));
     };
+
+    const location = useLocation();
+    useEffect(() => {
+        if (location.state) {
+            setValue("email", location.state.email)
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     let emailError = statusCode.code === 400 ? "無効なメールアドレスです。" : false;
 
     useEffect(() => {

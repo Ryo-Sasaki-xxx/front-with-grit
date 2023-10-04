@@ -5,8 +5,6 @@ import { MainArtilce } from "./MainAricle";
 export const MainContent = () => {
     return (
         <SDiv>
-            <Title subtitle=""
-                title="目標作成のための機能" />
             <MainArtilce />
         </SDiv>
     )

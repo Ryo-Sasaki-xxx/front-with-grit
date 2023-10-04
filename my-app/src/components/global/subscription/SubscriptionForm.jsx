@@ -1,15 +1,31 @@
 import styled from "styled-components";
 
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+
 export const SubscriptionForm = (props) => {
     const { formWidth, emailWidth, submitWidth, value } = props;
 
+    const { register, handleSubmit, } = useForm({});
+
+    const navigate = useNavigate();
+    const onClick = (data) => {
+        navigate("/log-in/sign-in", { state: { email: data.email } })
+    }
     return (
-        <SForm width={formWidth}>
-            <SInputEmail type="email" placeholder="メールアドレス" width={emailWidth} />
-            <SInputSubmit type="submit" value={value} width={submitWidth} />
+        <SForm width={formWidth} noValidate>
+            <SInputEmail
+                type="email"
+                placeholder="メールアドレス"
+                {...register("email")}
+                width={emailWidth}
+            />
+            <SInputSubmit type="submit" value={value} width={submitWidth} onClick={handleSubmit(onClick)} />
         </SForm>
     )
 };
+
+
 
 const SForm = styled.form`
     width: ${props => props.width}  ;
