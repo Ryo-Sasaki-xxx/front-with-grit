@@ -27,7 +27,7 @@ const SMain = styled.main`
 const SDiv2 = styled.div`
     display: flex;
     justify-content: flex-start;
-    width: 65rem;
+    width:80%;
     padding: 2rem 0 3rem 0;
 `;
 

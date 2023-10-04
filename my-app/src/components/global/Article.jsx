@@ -16,6 +16,5 @@ const SArticle = styled.article`
     text-align: justify;
     text-justify: inter-ideograph; 
     word-wrap: break-word;
-    
 `;
 
