@@ -79,7 +79,7 @@ export const FormContainer = (props) => {
         ifThen.ifThenList.forEach((ifThen, index) => {
             console.log(ifThen);
             formList.push(
-                <Form setActiveIfThen={setActiveIfThen} key={ifThen.if_then_id} index={index} isActive={activeIfThen[index]} ifThen={ifThen} setIfThen={setIfThen} />
+                <Form setActiveIfThen={setActiveIfThen} key={JSON.stringify(ifThen)} index={index} isActive={activeIfThen[index]} ifThen={ifThen} setIfThen={setIfThen} />
             );
         })
     }

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import axios from "../global/api/axios";
 import { Requests } from "../global/api/Requests";
 
-import { useEffect, } from "react";
+import { useEffect, useState, } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form } from "./Form";
 
@@ -24,6 +24,7 @@ export const FormContainer = (props) => {
         },
     };
     const { goalAndTask, setGoalAndTask } = useContext(GoalAndTaskContext);
+
     const getGoalAndTask = async () => {
         try {
             let response = await axios.get(Requests.getGoalAndTask, config);
@@ -49,19 +50,18 @@ export const FormContainer = (props) => {
         if (goalAndTask.statusCode == 401) {
             navigate("/log-in");
         }
-        console.log(goalAndTask);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [goalAndTask]);
 
     const { activeGoal, setActiveGoal } = useContext(ActiveGoalContext);
 
     const formList = [];
-    const { activeGoalState, setActiveGoalState } = useContext(GoalStateContext);
+    const { activeGoalState } = useContext(GoalStateContext);
     if (goalAndTask.goalAndTaskList.length !== 0) {
         goalAndTask.goalAndTaskList.forEach((goalAndTask, index) => {
             if (activeGoalState[Number(goalAndTask.status)]) {
                 formList.push(
-                    <Form setActiveGoal={setActiveGoal} key={goalAndTask.id} index={index} isActive={activeGoal[index]} goalAndTask={goalAndTask} setGoalAndTask={setGoalAndTask} />
+                    <Form setActiveGoal={setActiveGoal} key={JSON.stringify(goalAndTask)} index={index} isActive={activeGoal[index]} goalAndTask={goalAndTask} setGoalAndTask={setGoalAndTask} />
                 );
             }
         })

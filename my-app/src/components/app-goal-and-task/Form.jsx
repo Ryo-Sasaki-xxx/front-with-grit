@@ -5,29 +5,21 @@ import { useForm, useFieldArray, } from "react-hook-form"
 import axios from "../global/api/axios";
 import { Requests } from "../global/api/Requests";
 
-import { memo, useEffect } from "react";
+import { memo } from "react";
 
 export const Form = memo((props) => {
 
     const { setActiveGoal, index, isActive, goalAndTask, setGoalAndTask, } = props;
     const { content, id, status, task_set } = goalAndTask;
-    const { register, getValues, control, setValue, reset } = useForm();
-    useEffect(() => {
-        reset();
-        setValue("content", content);
-        setValue("id", id);
-        setValue("status", status);
-        setValue("task_set", task_set);
-        append({
-            content: "タスク",
-            goal: id,
-            id: null,
-            if_then_content: null,
-            if_then_id: null,
-        });
-        remove(task_set.length);
-
-    }, [props])
+    const { register, getValues, control, } = useForm({
+        defaultValues: {
+            "content": content,
+            "id": id,
+            "status": status,
+            "task_set": task_set,
+        }
+    });
+    console.log(index, "index");
     console.log(goalAndTask);
     console.log(getValues())
     const inputGoal =
@@ -35,7 +27,6 @@ export const Form = memo((props) => {
             type="text"
             {...register("content")}
         />;
-    console.log(index)
 
     const selectState =
         <SStateSelect {...register("status")}>
@@ -53,7 +44,6 @@ export const Form = memo((props) => {
     });
 
     const inputTaks = fields.map((field, index) => {
-        console.log(field);
         return (
             <SRadius2>
                 <STaskInput type="text" key={field.key} {...register(`task_set.${index}.content`)} />
@@ -180,7 +170,6 @@ export const Form = memo((props) => {
                 })
             }
         })
-        console.log(doneId);
         beforeGoalAndTask.task_set.forEach((beforeTask, index) => {
             if (!(doneId.includes(beforeTask.id))) {
                 apiList.deleteTaskData.push({
@@ -221,7 +210,6 @@ export const Form = memo((props) => {
     };
 
     const onClick = async () => {
-        console.log(goalAndTask, getValues())
         const apiList = searchApiList(goalAndTask, getValues());
         try {
             const result = [];
