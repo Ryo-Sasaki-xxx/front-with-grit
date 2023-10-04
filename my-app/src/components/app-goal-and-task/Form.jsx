@@ -1,16 +1,18 @@
 import styled from "styled-components";
 
+import { memo } from "react";
+
 import { useForm, useFieldArray, } from "react-hook-form"
 
 import axios from "../global/api/axios";
 import { Requests } from "../global/api/Requests";
 
-import { memo } from "react";
-
 export const Form = memo((props) => {
-
+    //propsを受け取り、goal&taskを展開
     const { setActiveGoal, index, isActive, goalAndTask, setGoalAndTask, } = props;
     const { content, id, status, task_set } = goalAndTask;
+
+    //フォームの定義をする
     const { register, getValues, control, } = useForm({
         defaultValues: {
             "content": content,
@@ -19,9 +21,13 @@ export const Form = memo((props) => {
             "task_set": task_set,
         }
     });
-    console.log(index, "index");
-    console.log(goalAndTask);
-    console.log(getValues())
+
+    const { fields, remove, append } = useFieldArray({
+        control: control,
+        name: "task_set",
+        keyName: "key",
+    });
+
     const inputGoal =
         <SGoalInput
             type="text"
@@ -34,14 +40,6 @@ export const Form = memo((props) => {
             <option value="1">Working</option>
             <option value="2">Completed</option>
         </SStateSelect>;
-
-
-
-    const { fields, remove, append } = useFieldArray({
-        control: control,
-        name: "task_set",
-        keyName: "key",
-    });
 
     const inputTaks = fields.map((field, index) => {
         return (
@@ -64,6 +62,7 @@ export const Form = memo((props) => {
         return result;
     };
 
+    //エントリーポイントの定義をする
     const config = {
         headers: {
             Authorization:
@@ -124,6 +123,7 @@ export const Form = memo((props) => {
         return response;
     };
 
+    //どのエントリーポイントを叩くのかを判別する関数を定義
     const searchApiList = (beforeGoalAndTask, afterGoalAndTask) => {
         const apiList = {
             "updateGoalData": [],
@@ -182,6 +182,7 @@ export const Form = memo((props) => {
         return apiList;
     };
 
+    //親コンポーネントでるFormContainerの状態を更新する
     const shapeGoalAndTask = (goalAndTask, apiList, responses) => {
         const goalAndTaskCopy = { ...goalAndTask };
         if (apiList.createTaskData.length !== 0) {
@@ -209,6 +210,7 @@ export const Form = memo((props) => {
         return goalAndTaskCopy;
     };
 
+    //エントリーポイントのhandler
     const onClick = async () => {
         const apiList = searchApiList(goalAndTask, getValues());
         try {
@@ -252,8 +254,6 @@ export const Form = memo((props) => {
         } catch (e) {
             console.log(e);
         }
-
-
     }
 
     let result
