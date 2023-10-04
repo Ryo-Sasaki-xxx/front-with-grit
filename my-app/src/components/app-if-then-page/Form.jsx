@@ -14,18 +14,22 @@ export const Form = memo((props) => {
     const { if_then_id, if_then_content, id, content } = ifThen;
     console.log(ifThen);
     console.log(if_then_id, if_then_content, id, content)
-    const { register, getValues, setValue, reset } = useForm();
-
+    const { register, getValues, setValue, reset } = useForm({
+        defaultValues: {
+            "ifThenId": if_then_id,
+            "ifThenContent": if_then_content,
+            "taskId": id,
+        },
+    });
     useEffect(() => {
-        reset();
-        setValue("ifThenId", if_then_id);
         if (if_then_content === null) {
-            setValue("ifThenContent", "if-thenを入力してください。");
-        } else {
-            setValue("ifThenContent", if_then_content);
+            setValue("ifThenContent", "if を入力してください。");
         }
-        setValue("taskId", id);
-    }, [props])
+    }, [if_then_content])
+
+    console.log(index, "index");
+    console.log(ifThen);
+    console.log(getValues())
 
     const inputIfThen =
         <SIfThenInput
