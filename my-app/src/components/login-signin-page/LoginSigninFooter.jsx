@@ -43,21 +43,28 @@ export const LoginSigninFooter = () => {
 const SNav = styled.nav`
     display:flex;
     justify-content: center;
+    @media (max-width: 80rem) {
+        width: 90%;
+    }
 `;
 
 const SUl = styled.ul`
     width: 80rem;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
     padding: 0 1rem;
     list-style: none;
+    margin: 1rem 0;
 `;
 
 const Sli = styled.li`
-    margin: 2rem 1rem;
+    margin: 1rem 1rem;
 `;
 
 const SA = styled(Link)`
+    display: block;
+    width: fit-content;
     font-size: 1.25rem;
     color: #333;
     &:hover {

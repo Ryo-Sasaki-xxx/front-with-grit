@@ -25,7 +25,7 @@ const SDiv = styled.div`
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(270deg, rgba(193, 71, 233, 0.00) 0%, rgba(193, 71, 233, 0.69) 100%);
 `;
 
@@ -34,10 +34,16 @@ const SMain = styled.main`
     display: flex;
     justify-content: space-between;
     width:80rem;
+    @media (max-width: 80rem) {
+        width: 90%;
+    }
 `;
 
 const SImg = styled.img`
     width: 50%;
     vertical-align: middle;
     filter: drop-shadow(2px 10px 0 rgba(3,3,3,0.2));
+    @media (max-width: 60rem) {
+        display: none;
+    }
 `;
