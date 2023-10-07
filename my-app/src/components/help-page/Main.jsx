@@ -63,9 +63,6 @@ const SDiv = styled.div`
     justify-content: center;
     padding: 2rem 0rem 3rem 0rem;
     width: 100%;
-    @media (max-width: 75rem) {
-        
-    }
     @media (max-width: 60rem) {
         padding: 1rem 0rem 2rem 0rem;
     }

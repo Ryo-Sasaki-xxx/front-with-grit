@@ -18,4 +18,8 @@ const SArticle = styled.article`
     word-wrap: break-word;
     color: #333;
     padding: 2rem 0rem 0rem 2rem;
+    @media (max-width: 45rem) {
+        font-size: 1rem;
+        padding: 1rem 0rem 0rem 1rem;
+    }
 `;
