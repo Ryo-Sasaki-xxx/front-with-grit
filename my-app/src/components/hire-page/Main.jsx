@@ -7,9 +7,9 @@ export const Main = () => {
     return (
         <SMain>
             <SDiv>
-                <SDiv2>
+                <SDiv3>
                     <Title subtitle="Join us ー" title="メンバー募集" />
-                </SDiv2>
+                </SDiv3>
             </SDiv>
             <SDiv2>
                 <MainContent />
@@ -24,12 +24,33 @@ const SMain = styled.main`
     align-items: center;
 `;
 
+const SDiv3 = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    width: 65rem;
+    padding: 2rem 0 3rem 0;
+    @media (max-width: 75rem) {
+        width:52rem;
+    }
+    @media (max-width: 60rem) {
+        padding: 0rem 0 1rem;
+        width: 80%;
+    }
+`;
 
 const SDiv2 = styled.div`
     display: flex;
     justify-content: flex-start;
     width: 65rem;
     padding: 2rem 0 3rem 0;
+    @media (max-width: 75rem) {
+        width:52rem;
+    }
+    @media (max-width: 60rem) {
+        flex-direction: column;
+        padding: 0rem 0 1rem;
+        width: 80%;
+    }
 `;
 
 const SDiv = styled.div`
@@ -41,4 +62,7 @@ const SDiv = styled.div`
     justify-content: center;
     padding: 2rem 0rem 3rem 0rem;
     width: 100%;
+    @media (max-width: 60rem) {
+        padding: 1rem 0rem 2rem 0rem;
+    }
 `;
