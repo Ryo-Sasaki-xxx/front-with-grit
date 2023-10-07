@@ -22,7 +22,7 @@ export const MainContent = () => {
 
     const sendHelp = async (data) => {
         try {
-            let response = await axios.post(Requests.help, data,);
+            await axios.post(Requests.help, data,);
             setHaveSent((prev) => {
                 return !prev;
             })
