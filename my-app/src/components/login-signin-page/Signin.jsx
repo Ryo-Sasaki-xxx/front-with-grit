@@ -116,22 +116,33 @@ const SDiv = styled.div`
     display: flex;
     flex-direction: column;
     width: 48%;
+    @media (max-width: 60rem) {
+        width: 100%
+    }
 `;
 
 const SSection = styled.section`
+    margin: 0 auto;
 `;
 
 const SH2 = styled.h2`
     font-size: 3rem;
     font-weight: bold;
     margin: 1rem auto;
+    @media (max-width: 60rem) {
+        font-size: 1.5rem;
+    }
 `;
 
 const SForm = styled.form`
-    width: 70%;
+    width: 85%;
     margin: 1rem 0 0 0;
     display: flex;
     flex-direction: column;
+    @media (max-width: 60rem) {
+        margin: 0 auto;
+        width: 100%
+    }
 `;
 
 const SInputName = styled.input`
@@ -183,7 +194,8 @@ const SDiv2 = styled.div`
 `;
 
 const SInputSubmit = styled.input`
-    width: 50%;
+width: fit-content;
+padding: 0 0.5rem;
     background: #333;
     color: #fff;
     border-radius: 15px;
@@ -192,7 +204,7 @@ const SInputSubmit = styled.input`
     height: 3.5rem;
     &:hover {
         opacity: 0.85;
-    }
+    } 
 `;
 
 const SA = styled(Link)`
@@ -201,5 +213,8 @@ const SA = styled(Link)`
     font-size: 1rem;
     &:hover {
         opacity: 0.5;
+    }
+    @media (max-width: 60rem) {
+        color: #333;
     }
 `;
