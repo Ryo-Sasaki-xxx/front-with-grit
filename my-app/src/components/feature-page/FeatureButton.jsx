@@ -40,6 +40,20 @@ const SA = styled.a`
             box-shadow: 0 0 0 rgba(3,3,3,0.5);
         }
     }
+    @media (max-width: 75rem) {
+        height: 6rem;
+        padding-top: 1.7rem;
+        margin-top: 1rem;
+    }
+    @media (max-width: 60rem) {
+        margin-left: 0;
+        width: 30%;
+    }
+    @media (max-width: 45rem) {
+        font-size: 1.2rem;
+        height: 5rem;
+        padding-top: 1.5rem;
+    }
     
 `;
 
@@ -47,8 +61,13 @@ const SDiv = styled.div`
     height: 100%;
     width:50%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     text-align: center;
     padding-top: 1rem;
+    @media (max-width: 60rem) {
+        width: 80%;
+        padding-left: 0;
+        padding-top: 0;
+    }
 `;
 
