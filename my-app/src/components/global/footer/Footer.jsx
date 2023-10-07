@@ -33,4 +33,7 @@ const SBorder = styled.div`
     border-top: 1px solid #fff;
     width: 98%;
     margin:  0 auto ;
+    @media (max-width: 60rem) {
+        margin: 0.5rem auto;
+    }
 `;

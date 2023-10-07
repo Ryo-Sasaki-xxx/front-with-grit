@@ -21,8 +21,16 @@ const SWrapper = styled.div`
     width: 100%;
     display: flex;
     height: 20%;
+    @media (max-width: 60rem) {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
 `;
 
 const SDiv = styled.div`
     width: 50%;
+    @media (max-width: 60rem) {
+        width: 100%;
+    }
 `;

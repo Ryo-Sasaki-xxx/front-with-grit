@@ -82,7 +82,7 @@ const SDivInfo = styled.div`
     position: fixed;
     top: 5.5rem;
     right: 0rem;
-    z-index: 999;
+    z-index: 99;
 `;
 
 const SDivProf = styled.div`
@@ -90,6 +90,6 @@ const SDivProf = styled.div`
     position: fixed;
     top: 5.5rem;
     right: 0rem;
-    z-index: 999;
+    z-index: 99;
 `;
 

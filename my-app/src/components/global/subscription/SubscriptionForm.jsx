@@ -32,6 +32,9 @@ const SForm = styled.form`
     margin: 1rem 0 0 0;
     display: flex;
     justify-content: space-around;
+    @media (max-width: 45rem) {
+        font-size: 0.9rem;
+    }
 `;
 
 const SInputEmail = styled.input`

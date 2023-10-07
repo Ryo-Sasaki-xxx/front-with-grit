@@ -16,4 +16,5 @@ const SDiv = styled.div`
     background-size:100%;
     background-position: bottom;
     transform: scale(-1,1);
+    padding: 2rem 0 2rem 0;
 `;

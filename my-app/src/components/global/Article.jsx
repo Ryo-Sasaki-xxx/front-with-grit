@@ -16,5 +16,16 @@ const SArticle = styled.article`
     text-align: justify;
     text-justify: inter-ideograph; 
     word-wrap: break-word;
+    width: 100%;
+    @media (max-width: 75rem) {
+        font-size: 1.4rem;
+    }
+    @media (max-width: 60rem) {
+        font-size: 1.6rem;
+    }
+    @media (max-width: 45rem) {
+        font-size: 1.4rem;
+    }
+
 `;
 

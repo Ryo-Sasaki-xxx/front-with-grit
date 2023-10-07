@@ -13,7 +13,11 @@ export const FeatureContent = () => {
 
 const SDiv = styled.div`
     width: 100%;
-    height: 45rem;
-    padding: 2rem 0 5rem 0;
+    padding-top: 3rem;
     display: flex;
+    @media (max-width: 60rem) {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 1rem;
+    }
 `;
