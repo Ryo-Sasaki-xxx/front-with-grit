@@ -32,6 +32,12 @@ const SDiv3 = styled.div`
     justify-content: center;
     width: 100%;
     background: linear-gradient(270deg, #C147E9 0%, rgba(193, 71, 233, 0.00) 100%);
+    @media (max-width: 75rem) {
+        padding: 1rem 0;
+    }
+    @media (max-width: 60rem) {
+        padding: 1.5rem 0;
+    }
 `;
 
 const SDiv2 = styled.div`
@@ -39,6 +45,13 @@ const SDiv2 = styled.div`
     flex-direction: column;
     width: 65rem;
     padding: 2rem 0 3rem 0;
+    @media (max-width: 75rem) {
+        width: 52rem;
+    }
+    @media (max-width: 60rem) {
+        width: 80%;
+        padding: 0;
+    }
 `;
 
 const SDiv = styled.div`
@@ -50,4 +63,10 @@ const SDiv = styled.div`
     justify-content: center;
     padding: 2rem 0rem 3rem 0rem;
     width: 100%;
+    @media (max-width: 75rem) {
+        
+    }
+    @media (max-width: 60rem) {
+        padding: 1rem 0rem 2rem 0rem;
+    }
 `;

@@ -96,6 +96,9 @@ const SForm = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    @media (max-width: 60rem) {
+        width: 100%;
+    }
 `;
 
 const STextarea = styled.textarea`
@@ -107,6 +110,9 @@ const STextarea = styled.textarea`
     margin-top: 2rem;
     &::placeholder {
         text-align: left;
+    }
+    @media (max-width: 45rem) {
+        font-size: 0.9rem;
     }
 `;
 
@@ -121,6 +127,9 @@ const SInput = styled.input`
     &::placeholder {
         text-align: left;
     }
+    @media (max-width: 45rem) {
+        font-size: 0.9rem;
+    }
 `;
 
 const SInputSubmit = styled.input`
@@ -134,6 +143,13 @@ const SInputSubmit = styled.input`
     margin-top: 2rem;
     &:hover {
         opacity: 0.95;
+    }
+    @media (max-width: 60rem) {
+        width: 25%;
+        height: 3rem;
+    }
+    @media (max-width: 45rem) {
+        font-size: 0.9rem;
     }
 `;
 
