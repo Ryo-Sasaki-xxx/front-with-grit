@@ -25,13 +25,30 @@ const SDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (max-width: 75rem) {
+        width: 52rem;
+        padding: 5rem 0 6rem 0;
+    }
+    @media (max-width: 60rem) {
+        width: 80%;
+        height: auto;
+        padding: 3rem 0 5rem 0;
+    }
 `;
 
 const SDiv2 = styled.div`
     display: flex;
     width: 100%;
+    @media (max-width: 60rem) {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
 `;
 
 const SDiv3 = styled.div`
     width: 50%;
+    @media (max-width: 60rem) {
+        width: 100%;
+    }
 `;

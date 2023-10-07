@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Title } from "../global/Title";
 import { MainArtilce } from "./MainAricle";
 
 export const MainContent = () => {
@@ -12,10 +11,13 @@ export const MainContent = () => {
 
 const SDiv = styled.div`
     width: 100%;
-    height: 45rem;
+    // height: 45rem;
     padding: 4rem 0 5rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (max-width: 60rem) {
+        padding: 2rem 0 3rem;
+    }
 `;
 
