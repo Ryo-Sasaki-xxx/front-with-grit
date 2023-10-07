@@ -70,13 +70,21 @@ const SA = styled.a`
     &:hover {
         opacity:0.7;
     }
+    @media (max-width: 75rem) {
+        font-size: 1.4rem;
+    }
+    @media (max-width: 60rem) {
+        font-size: 1.2rem;
+    }
 `;
 
 const SLi = styled.li`
     margin-top:0.7rem;
     width: 14rem;
     border-bottom: 2px #333 solid;
-
+    @media (max-width:  60rem) {
+        width: 100%;
+    }
 `;
 
 const SUl = styled.ul`
@@ -84,7 +92,10 @@ const SUl = styled.ul`
     width: 15rem;
     display: flex;
     flex-direction: column;
-    align-items: center
+    align-items: center;
+    @media (max-width: 60rem) {
+        width: 100%;
+    }
 `;
 
 const SAside = styled.aside`
@@ -101,20 +112,30 @@ const SH3 = styled.h3`
     border-bottom: 2px #C147E9 solid;
     font-size: 1.75rem;
     font-weight: bold;
-
+    @media (max-width: 75rem) {
+        font-size: 1.4rem;
+    }
+    @media (max-width: 60rem) {
+        font-size: 1.2rem;
+        width: 100%
+    }
 `;
 
 const SDiv1 = styled.div`
     width: 60%;
-    height: 45rem;
     padding: 0rem 0 5rem 0;
     display: flex;
     flex-direction: column;
+    @media (max-width: 60rem) {
+        width: 100%;
+    }
 `;
 
 const SDiv2 = styled.div`
     width: 40%;
-    height: 45rem;
     padding: 0rem 0 5rem 0;
     display: flex;
+    @media (max-width: 60rem) {
+        width: 100%;
+    }
 `;
