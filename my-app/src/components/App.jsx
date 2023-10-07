@@ -26,33 +26,41 @@ import { AppPage } from "./AppPage";
 import { GoalTask } from "./app-goal-and-task/GoalTask";
 import { IfThen } from "./app-if-then-page/IfThen";
 
+import { IsActiveHumbergerProvider } from "./global/header/provider/ActiveHumberger";
 
 export const App = () => {
     return (
         <>
             <GlobalStyle />
             <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<HomePage />}>
-                        <Route path="" element={<HaveSubscriptionPage />}>
-                            <Route path="" element={<Index />} />
-                            <Route path="feature" element={<Feature />} />
-                            <Route path="mission" element={<Mission />} />
+                <IsActiveHumbergerProvider>
+                    <Routes>
+
+                        <Route path="/" element={<HomePage />}>
+                            <Route path="" element={<HaveSubscriptionPage />}>
+                                <Route path="" element={<Index />} />
+                                <Route path="feature" element={<Feature />} />
+                                <Route path="mission" element={<Mission />} />
+                            </Route>
+                            <Route path="help" element={<Help />} />
+                            <Route path="hire" element={<Hire />} />
+                            <Route path="privacy-policy" element={<PrivacyPolicy />} />
                         </Route>
-                        <Route path="help" element={<Help />} />
-                        <Route path="hire" element={<Hire />} />
-                        <Route path="privacy-policy" element={<PrivacyPolicy />} />
-                    </Route>
-                    <Route path="/app" element={<AppPage />}>
-                        <Route path="" element={<GoalTask />} />
-                        <Route path="if-then" element={<IfThen />} />
-                    </Route>
-                    <Route path="/log-in" element={<LoginSigninPage />}>
-                        <Route path="" element={<Login />} />
-                        <Route path="sign-in" element={<Signin />} />
-                    </Route>
-                    <Route path="*" element={<NotFoundPage />} />
-                </Routes>
+
+                        <Route path="/app" element={<AppPage />}>
+                            <Route path="" element={<GoalTask />} />
+                            <Route path="if-then" element={<IfThen />} />
+                        </Route>
+
+                        <Route path="/log-in" element={<LoginSigninPage />}>
+                            <Route path="" element={<Login />} />
+                            <Route path="sign-in" element={<Signin />} />
+                        </Route>
+
+                        <Route path="*" element={<NotFoundPage />} />
+
+                    </Routes>
+                </IsActiveHumbergerProvider>
             </BrowserRouter>
         </>
     )

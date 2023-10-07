@@ -20,4 +20,14 @@ const SDiv = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
+    @media (max-width: 75rem) {
+        width: 52rem;
+        height: 17.6rem;
+        padding: 4rem 0;
+    }
+    @media (max-width: 60rem) {
+        flex-direction: column;
+        width: 100%;
+        height: 14rem;
+    }
 `;

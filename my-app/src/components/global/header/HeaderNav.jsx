@@ -35,19 +35,25 @@ const SUl = styled.ul`
     display: flex;
     padding: 0 1rem;
     list-style: none;
-    a {
-        font-size: 1.25rem;
-        color: #333;
+    @media (max-width: 75rem){
+        padding: 0 0.8rem;
     }
 `;
 
 const Sli = styled.li`
     margin: 0 1rem;
+    @media (max-width: 75rem){
+        margin: 0 0.8rem;
+    }
 `;
 
 const SA = styled(Link)`
+    font-size: 1.25rem;
+    color: #333;
     &:hover {
         opacity: 0.5;
     }
-    
+    @media (max-width: 75rem){
+        font-size: 1rem;
+    }
 `;
