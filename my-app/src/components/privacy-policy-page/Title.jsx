@@ -15,4 +15,10 @@ const SH2 = styled.h2`
     font-weight: bold;
     font-family: 'Noto Sans JP', sans-serif;
     padding-left: 1rem;
+    @media (max-width: 75rem) {
+        font-size: 1.4rem;
+    }
+    @media (max-width: 45rem) {
+        font-size: 1rem;
+    }
 `;

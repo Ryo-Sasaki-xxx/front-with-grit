@@ -29,6 +29,9 @@ const SDiv2 = styled.div`
     justify-content: flex-start;
     width:80%;
     padding: 2rem 0 3rem 0;
+    @media (max-width: 60rem) {
+        padding: 1rem 0 1rem 0;
+    }
 `;
 
 const SDiv = styled.div`
@@ -40,4 +43,7 @@ const SDiv = styled.div`
     justify-content: center;
     padding: 2rem 0rem 3rem 0rem;
     width: 100%;
+    @media (max-width: 60rem) {
+        padding: 1rem 0 1rem 0;
+    }
 `;
