@@ -25,8 +25,15 @@ const SA = styled(Link)`
     color: #fff;
     border-radius: 15px;
     text-align: center;
-    &:hover {
-        opacity: 0.9;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+    @media (hover: none) {
+        &:active {
+            opacity: 0.9;
+        }
     }
     
 `;

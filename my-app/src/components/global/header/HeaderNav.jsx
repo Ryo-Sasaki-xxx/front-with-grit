@@ -50,8 +50,15 @@ const Sli = styled.li`
 const SA = styled(Link)`
     font-size: 1.25rem;
     color: #333;
-    &:hover {
-        opacity: 0.5;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+    @media (hover: none) {
+        &:active {
+            opacity: 0.5;
+        }
     }
     @media (max-width: 75rem){
         font-size: 1rem;

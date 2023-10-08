@@ -67,8 +67,15 @@ export const MainContent = () => {
 const SA = styled.a`
     font-size: 1.75rem;
     color: ${props => props.active};
-    &:hover {
-        opacity:0.7;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+    @media (hover: none) {
+        &:active {
+            opacity: 0.7;
+        }
     }
     @media (max-width: 75rem) {
         font-size: 1.4rem;

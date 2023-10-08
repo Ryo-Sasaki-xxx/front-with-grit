@@ -26,8 +26,14 @@ const SA = styled.a`
 
 const SImg = styled.img`
     vertical-align: middle;
-    &:hover {
-        opacity: 0.5;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.5;
+        }
     }
+    @media (hover: none) {
+        &:active {
+            opacity: 0.5;
+        }
     }
 `;

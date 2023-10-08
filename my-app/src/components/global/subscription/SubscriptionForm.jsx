@@ -57,7 +57,14 @@ const SInputSubmit = styled.input`
     cursor: pointer;
     border: none;
     height: 3.5rem;
-    &:hover {
-        opacity: 0.95;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.95;
+        }
+    }
+    @media (hover: none) {
+        &:active {
+            opacity: 0.95;
+        }
     }
 `;

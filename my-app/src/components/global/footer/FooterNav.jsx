@@ -59,8 +59,15 @@ const Sli = styled.li`
 const SA = styled(Link)`
     display:block;
     color: #fff;
-    &:hover {
-        opacity: 0.5;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+    @media (hover: none) {
+        &:active {
+            opacity: 0.5;
+        }
     }
 `;
 

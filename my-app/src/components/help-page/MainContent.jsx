@@ -141,8 +141,15 @@ const SInputSubmit = styled.input`
     border: none;
     height: 3.5rem;
     margin-top: 2rem;
-    &:hover {
-        opacity: 0.95;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.95;
+        }
+    }
+    @media (hover: none) {
+        &:active {
+            opacity: 0.95;
+        }
     }
     @media (max-width: 60rem) {
         width: 25%;
