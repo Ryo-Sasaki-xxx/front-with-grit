@@ -30,7 +30,14 @@ const SButton = styled.button`
     padding: 0.5rem;
     color: #fff;
     background: #333;
-    &:hover {
-        opacity: 0.5;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+    @media (hover: none) {
+        &:active {
+            opacity: 0.5;
+        }
     }
 `;

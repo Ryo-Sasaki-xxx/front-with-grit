@@ -202,9 +202,16 @@ padding: 0 0.5rem;
     cursor: pointer;
     border: none;
     height: 3.5rem;
-    &:hover {
-        opacity: 0.85;
-    } 
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.85;
+        }
+    }
+    @media (hover: none) {
+        &:active {
+            opacity: 0.85;
+        }
+    }
 `;
 
 const SA = styled(Link)`

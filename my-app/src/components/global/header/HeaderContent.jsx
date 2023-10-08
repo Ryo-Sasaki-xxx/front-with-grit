@@ -91,8 +91,15 @@ const SSpan3 = styled.span`
 
 const SButton = styled.button`
     display: none;
-    &:hover {
-        opacity: 0.5;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+    @media (hover: none) {
+        &:active {
+            opacity: 0.5;
+        }
     }
     @media (max-width: 60rem) {
         width: 3rem;

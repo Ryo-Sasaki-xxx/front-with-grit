@@ -179,8 +179,15 @@ const SInputSubmit = styled.input`
     cursor: pointer;
     border: none;
     height: 3.5rem;
-    &:hover {
-        opacity: 0.85;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.85;
+        }
+    }
+    @media (hover: none) {
+        &:active {
+            opacity: 0.85;
+        }
     }
 `;
 
@@ -189,8 +196,15 @@ const SA = styled(Link)`
     margin-left: 2rem;
     color: #fff;
     font-size: 1rem;
-    &:hover {
-        opacity: 0.5;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+    @media (hover: none) {
+        &:active {
+            opacity: 0.5;
+        }
     }
     @media (max-width: 60rem) {
         color: #333;

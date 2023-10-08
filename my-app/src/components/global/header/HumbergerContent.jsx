@@ -71,8 +71,15 @@ const SA1 = styled(Link)`
     width: 100%;
     font-size: 1.25rem;
     color: #333;
-    &:hover {
-        opacity: 0.5;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+    @media (hover: none) {
+        &:active {
+            opacity: 0.5;
+        }
     }
 `;
 
@@ -81,8 +88,14 @@ const SA2 = styled(Link)`
     font-size: 1.25rem;
     color: #fff;
     background: #333;
-    &:hover {
-        opacity: 0.5;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.5;
+        }
     }
-
+    @media (hover: none) {
+        &:active {
+            opacity: 0.5;
+        }
+    }
 `;
