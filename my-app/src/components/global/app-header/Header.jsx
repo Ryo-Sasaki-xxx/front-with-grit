@@ -1,17 +1,20 @@
 import { styled } from "styled-components";
 import { HeaderContent } from "./HeaderContent";
+import { HumbergerContent } from "./HumbergerContent";
+import { useState } from "react";
 
 export const Header = () => {
+    const [isActiveHumberger, setIsActiveHumberger] = useState(false);
     return (
         <SHeader>
-            <HeaderContent />
+            <HeaderContent isActiveHumberger={isActiveHumberger} setIsActiveHumberger={setIsActiveHumberger} />
+            <HumbergerContent isActiveHumberger={isActiveHumberger} />
         </SHeader>
     );
 };
 
 const SHeader = styled.header`
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     background: #fff;
     box-sizing: border-box;

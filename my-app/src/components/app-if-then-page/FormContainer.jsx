@@ -106,11 +106,14 @@ const SDiv = styled.div`
 `;
 
 const SDiv2 = styled.div`
-    width: 80%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     padding: 0.5rem 0;
     align-items: center;
+    @media (max-width: 73rem) {
+        width: 90%;
+    }
 `;
 
 

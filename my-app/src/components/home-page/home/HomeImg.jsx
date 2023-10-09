@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HomeImg = () => {
     return (
         <SDiv>
-            <SImg src="/test.svg" alt="test" />
+            <SImg src="/with-grit-logo-dark.svg" alt="with GRIT Logo" />
         </SDiv>
     )
 };
@@ -21,4 +21,5 @@ const SDiv = styled.div`
 
 const SImg = styled.img`
     width: 80%;
+    filter: drop-shadow(2px 10px 0 rgba(3,3,3,0.2));
 `;

@@ -45,7 +45,10 @@ export const Form = memo((props) => {
         return (
             <SRadius2>
                 <STaskInput type="text" key={field.key} {...register(`task_set.${index}.content`)} />
-                <SButton type="button" onClick={() => remove(index)} >Delete</SButton>
+                <SButton4 type="button" onClick={() => remove(index)} >
+                    <SSpan1 />
+                    <SSpan2 />
+                </SButton4>
             </SRadius2>
         )
     })
@@ -260,68 +263,63 @@ export const Form = memo((props) => {
 
     if (isActive) {
         result =
-            <>
-                <SDiv isActive={true}>
-                    <SRadius status={status}>
-                        {inputGoal}
-                        <SButton
-                            onClick={() => onClick()}
-                        >
-                            Save
-                        </SButton>
-                        <SButton
-                            onClick={() => deleteGoal()}
-                        >
-                            Delete
-                        </SButton>
-                    </SRadius>
-                    <SBorder isActive={true} />
-                    <SDetail>
-                        <SSummary>状態</SSummary>
-                        <SRadius2>
-                            {selectState}
-                        </SRadius2>
-                    </SDetail>
-                    <SDetail>
-                        <SSummary>タスク</SSummary>
-                        {[...inputTaks]}
-                        <SButton2
-                            onClick={() => append({
-                                content: "タスク",
-                                goal: id,
-                                id: null,
-                                if_then_content: null,
-                                if_then_id: null,
-                            })}
-                        >
-                            Add
-                        </SButton2>
-                    </SDetail>
-                </SDiv>
-            </>
+            <SDiv isActive={true}>
+                <SButton1
+                    onClick={() => onClick()}
+                >
+                    Save
+                </SButton1>
+                <SButton2
+                    onClick={() => deleteGoal()}
+                >
+                    Delete
+                </SButton2>
+                <SRadius status={status}>
+                    {inputGoal}
+                </SRadius>
+                <SBorder isActive={true} />
+                <SDetail>
+                    <SSummary>状態</SSummary>
+                    <SRadius2>
+                        {selectState}
+                    </SRadius2>
+                </SDetail>
+                <SDetail>
+                    <SSummary>タスク</SSummary>
+                    {[...inputTaks]}
+                    <SButton3
+                        onClick={() => append({
+                            content: "タスク",
+                            goal: id,
+                            id: null,
+                            if_then_content: null,
+                            if_then_id: null,
+                        })}
+                    >
+                        Add
+                    </SButton3>
+                </SDetail>
+            </SDiv>
     } else {
         result =
-            <>
-                <SDiv
-                    onClick={() => setActiveGoal((activeGoal) => {
-                        const activeGoalCopy = [...activeGoal];
-                        activeGoalCopy.fill(false);
-                        activeGoalCopy[index] = true;
-                        return activeGoalCopy;
-                    })}
-                >
-                    <SRadius status={status}><SP>{content}</SP></SRadius>
-                    <SBorder />
-                    <SP2>{concatTask(task_set)}</SP2>
-                </SDiv>
-            </>
+            <SDiv
+                onClick={() => setActiveGoal((activeGoal) => {
+                    const activeGoalCopy = [...activeGoal];
+                    activeGoalCopy.fill(false);
+                    activeGoalCopy[index] = true;
+                    return activeGoalCopy;
+                })}
+            >
+                <SRadius status={status}><SP>{content}</SP></SRadius>
+                <SBorder />
+                <SP2>{concatTask(task_set)}</SP2>
+            </SDiv>
     }
 
     return result;
 });
 const SDiv = styled.div`
     width: 100%;
-    // height: ${props => props.isActive ? "15rem" : "8.5rem"};
     ${props => props.isActive && "border: 3px solid #333;"}
     display:flex;
     flex-direction: column;
@@ -334,7 +332,8 @@ const SDiv = styled.div`
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     padding: 1rem 1rem 1.5rem 1rem;
     margin: 1.5rem 1rem;
-    transition: height 1s ease ; 
+    transition: height 1s ease ;
+    position: relative; 
 `;
 
 const SBorder = styled.div`
@@ -348,12 +347,18 @@ const SP = styled.p`
     font-size: 1.25rem;
     margin-left: 1rem;
     font-family: 'Noto Sans JP', sans-serif;
+    @media (max-width: 73rem) {
+        font-size: 1rem;
+    }
 `;
 
 const SP2 = styled.p`
     color: rgba(51,51,51,0.5);
     margin: 1rem 0rem 1rem 1rem;
     font-family: 'Noto Sans JP', sans-serif;
+    @media (max-width: 73rem) {
+        font-size: 1rem;
+    }
 `;
 
 const SGoalInput = styled.input`
@@ -366,6 +371,9 @@ const SGoalInput = styled.input`
         opacity: 0.5;
     }
     flex-glow: 1;
+    @media (max-width: 73rem) {
+        font-size: 1rem;
+    }
 `;
 
 const SRadius = styled.div`
@@ -389,11 +397,16 @@ const SRadius = styled.div`
         content: "";
         box-sizing: border-box;
         flex-grow: 0;
+        @media (max-width: 73rem) {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
 `;
 
 const SRadius2 = styled.div`
     display: flex;
+    align-items: center;
     margin-bottom: 1rem;
     &::before {
         border-radius: 50%;
@@ -404,6 +417,9 @@ const SRadius2 = styled.div`
         box-sizing: border-box;
         margin: 1rem;
         flex-grow: 0;
+        @media (max-width: 73rem) {
+            margin: 0.2rem
+        }
     }
 `;
 
@@ -414,10 +430,14 @@ const SDetail = styled.details`
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (max-width: 73rem) {
+        font-size: 1rem;
+    }
 `;
 
 const SSummary = styled.summary`
     font-family: 'Noto Sans JP', sans-serif;
+    margin-bottom: 1rem;
 `;
 
 const SStateSelect = styled.select`
@@ -426,6 +446,9 @@ const SStateSelect = styled.select`
     font-family: 'Noto Sans JP', sans-serif;
     &:hover {
         opacity: 0.5;
+    }
+    @media (max-width: 73rem) {
+        font-size: 1rem;
     }
 `;
 
@@ -438,9 +461,12 @@ const STaskInput = styled.input`
         opacity: 0.5;
     }
     flex-grow: 1;
+    @media (max-width: 73rem) {
+        font-size: 1rem;
+    }
 `;
 
-const SButton = styled.button`
+const SButton1 = styled.button`
     border-radius: 12px;
     background: #333;
     color: #fff;
@@ -452,9 +478,29 @@ const SButton = styled.button`
     &:hover {
         opacity: 0.5;
     }
+    position: absolute;
+    top: -2rem;
+    right: 4.5rem;
 `;
 
 const SButton2 = styled.button`
+    border-radius: 12px;
+    background: #333;
+    color: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-size: 1rem;
+    padding: 0.2rem;
+    width: 4rem;
+    margin-left: 0.5rem;
+    &:hover {
+        opacity: 0.5;
+    }
+    position: absolute;
+    top: -2rem;
+    right: 0;
+`;
+
+const SButton3 = styled.button`
     border-radius: 10px;
     background: #333;
     color: #fff;
@@ -465,5 +511,56 @@ const SButton2 = styled.button`
     margin: 0 auto;
     &:hover {
         opacity: 0.5;
+    }
+`;
+
+const SButton4 = styled.button`
+    border-radius: 50%;
+    background: #333;
+    color: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-size: 1rem;
+    padding: 0.2rem;
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0.5rem;
+    &:hover {
+        opacity: 0.5;
+    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    @media (max-width: 73rem) {
+        width: 1rem;
+        height: 1rem;
+    }
+`;
+
+const SSpan1 = styled.span`
+    content: '';
+    width: 80%;
+    transform: rotate(48deg);
+    background: #fff;
+    border-radius: 3px;
+    height: 2px;
+    position: relative;
+    top:  1rem;
+    @media (max-width: 73rem) {
+        top: 0.5rem
+    }
+`;
+
+const SSpan2 = styled.span`
+    content: '';
+    width: 80%;
+    transform: rotate(-48deg);
+    background: #fff;
+    border-radius: 3px;
+    height: 2px;
+    position: relative;
+    top: -0.9rem;
+    @media (max-width: 73rem) {
+        top: -0.4rem
     }
 `;

@@ -48,6 +48,7 @@ export const Signin = () => {
         if (statusCode.code === 201) {
             navigate("/log-in", { state: { email: statusCode.email } })
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [statusCode]);
 
     const emailErrorGenerator = () => {

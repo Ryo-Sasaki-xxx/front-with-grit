@@ -152,7 +152,7 @@ export const Form = memo((props) => {
                 <SDiv2>
                     <SDiv3>
                         <SP>【if-then スケジュール】</SP>
-                        <SButton onClick={onClick}>Save</SButton>
+                        <SButton onClick={onClick} $isActive={isActive}>Save</SButton>
                     </SDiv3>
                     {inputIfThen}
                 </SDiv2>
@@ -180,13 +180,22 @@ const SDiv = styled.div`
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     padding: 1rem;
     margin: 1.5rem 1rem;
+    position: relarive;
     transition: height 1s ease ; 
+    @media (max-width: 73rem) {
+        flex-direction: column;
+        align-items: center;
+        height: fit-content;
+    }
 `;
 
 const SDiv2 = styled.div`
     display: flex;
     flex-direction: column;
     width: 45%;
+    @media (max-width: 73rem) {
+        width: 100%;
+    }
 `;
 
 const SDiv3 = styled.div`
@@ -199,6 +208,13 @@ const SBorder = styled.div`
     border-left: ${props => props.isActive ? "3" : "2"}px solid #333;
     height: 100%;
     margin: 0rem 1rem;
+    @media (max-width: 73rem) {
+        border-left: 0px;
+        border-bottom: ${props => props.isActive ? "3" : "2"}px solid #333;
+        height: 0;
+        width: 100%;
+        margin: 1rem 0;
+    }
 `;
 
 const SP = styled.p`
@@ -206,6 +222,9 @@ const SP = styled.p`
     font-size: 1.25rem;
     margin-left: 1rem;
     display: inline-block;
+    @media (max-width: 73rem) {
+        font-size: 1rem;
+    }
 `;
 
 const SIfThenInput = styled.input`
@@ -216,9 +235,14 @@ const SIfThenInput = styled.input`
     &:hover {
         opacity: 0.5;
     }
+    @media (max-width: 73rem) {
+        font-size: 1rem;
+        margin-right: 1rem;
+    }
 `;
 
 const SButton = styled.button`
+    ${props => !props.$isActive && "display: none;"}
     border-radius: 12px;
     background: #333;
     color: #fff;
