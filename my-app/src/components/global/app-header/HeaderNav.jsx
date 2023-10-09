@@ -23,9 +23,11 @@ export const HeaderNav = () => {
 
 const SNav = styled.nav`
     flex-grow:1;
-    
     display:flex;
     align-items: center;
+    @media (max-width: 65rem) {
+        display: none;
+    }
 `;
 
 const SUl = styled.ul`

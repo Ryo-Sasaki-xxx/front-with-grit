@@ -3,32 +3,33 @@ import styled from "styled-components"
 export const CheckBox = (props) => {
     const { onClick, background, activeGoalState, content } = props;
     return (
-        <SDiv>
-            <SButton onClick={onClick}>
-                <SRadius active={activeGoalState} background={background} content={content} />
-            </SButton>
-        </SDiv>
+        <SButton onClick={onClick}>
+            <SRadius active={activeGoalState} background={background} />
+            {content}
+        </SButton>
     );
 };
 
-const SDiv = styled.div`
-    width: 10%;
-    display: block;
-`;
-
 const SButton = styled.button`
     display:flex;
-    margin: auto;
-    width: 2.5rem;
-    height: 2.5rem;
+    align-items: center;
+    margin: 0 2rem 0 0;
+    font-size: 1.25rem;
+    width: fit-content;
     &:hover {
         opacity: 0.5;
+    }
+    @media (max-width: 73rem) {
+        font-size: 1rem;
+    }
+    @media (max-width: 40rem) {
+        margin: 0;
     }
 `;
 
 const SRadius = styled.div`
-    width: 100%;
-    height: 100%;
+    width: 2.5rem;
+    height: 2.5rem;
     border: solid ${props => props.background} 5px;
     border-radius: 50%;
     background: #fff;
@@ -46,11 +47,8 @@ const SRadius = styled.div`
         opacity: ${props => props.active ? 1 : 0};
         position: absolute;
     }
-    &::after {
-        content: "${props => props.content}";
-        color: #333;
-        margin-left: 1.5rem;
-        padding: 0rem 1rem;
-        font-size: 1.25rem;
-     }
+    @media (max-width: 73rem) {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
 `;

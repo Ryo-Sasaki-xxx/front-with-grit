@@ -40,4 +40,7 @@ const SButton = styled.button`
             opacity: 0.5;
         }
     }
+    @media (max-width: 65rem) {
+        display: none;
+    }
 `;

@@ -29,6 +29,15 @@ const SH2 = styled.h2`
     color: #fff;
     font-size: 3rem;
     font-weight: bold;
+    @media (max-width: 73rem) {
+        font-size: 1.5rem;
+    }
+    @media (max-width: 55rem) {
+        width: 100%;
+    }
+    @media (max-width: 40rem) {
+        width: fit-content;
+    }
 `;
 
 const SDiv2 = styled.div`
@@ -37,4 +46,7 @@ const SDiv2 = styled.div`
     justify-content: space-between;
     padding: 0.5rem 0;
     align-items: center;
+    @media (max-width: 40rem) {
+        width: 90%
+    }
 `;
