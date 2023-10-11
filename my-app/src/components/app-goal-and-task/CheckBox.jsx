@@ -16,6 +16,7 @@ const SButton = styled.button`
     margin: 0 2rem 0 0;
     font-size: 1.25rem;
     width: fit-content;
+    color: #333;
     &:hover {
         opacity: 0.5;
     }

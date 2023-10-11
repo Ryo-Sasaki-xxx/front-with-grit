@@ -367,10 +367,10 @@ const SGoalInput = styled.input`
     margin-left: 1rem;
     font-family: 'Noto Sans JP', sans-serif;
     flex-grow: 1;
+    width: 80%;
     &:hover {
         opacity: 0.5;
     }
-    flex-glow: 1;
     @media (max-width: 73rem) {
         font-size: 1rem;
     }
@@ -461,6 +461,7 @@ const STaskInput = styled.input`
         opacity: 0.5;
     }
     flex-grow: 1;
+    width: 80%;
     @media (max-width: 73rem) {
         font-size: 1rem;
     }
