@@ -91,11 +91,13 @@ export const Form = memo((props) => {
     };
 
     const shapeIfThen = (ifThen, apiList, responses) => {
-        ifThen.ifThenList[index] = {
-            if_then_id: responses[0].data.id,
-            if_then_content: responses[0].data.content,
-            id: responses[0].data.task,
-            content: content,
+        if (apiList.createIfThenData.length !== 0 || apiList.updateIfThenData.length !== 0) {
+            ifThen.ifThenList[index] = {
+                if_then_id: responses[0].data.id,
+                if_then_content: responses[0].data.content,
+                id: responses[0].data.task,
+                content: content,
+            }
         }
         return ifThen;
     };

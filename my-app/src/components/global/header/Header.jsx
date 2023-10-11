@@ -16,7 +16,7 @@ export const Header = () => {
 
 const SHeader = styled.header`
     width: 100%;
-    height: auto;
+    height: 5rem;
     background: #fff;
     box-sizing: border-box;
     margin: 0;
