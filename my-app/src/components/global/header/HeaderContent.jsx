@@ -32,6 +32,7 @@ const SDiv = styled.div`
     padding: 0.5rem 0;
     display: flex;
     justify-content: space-between;
+    height: 100%;
     @media (max-width: 75rem) {
         width: 60rem;
         padding: 0.4rem 0;

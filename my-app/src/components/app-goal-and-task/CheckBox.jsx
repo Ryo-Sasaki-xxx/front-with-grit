@@ -17,9 +17,17 @@ const SButton = styled.button`
     font-size: 1.25rem;
     width: fit-content;
     color: #333;
-    &:hover {
-        opacity: 0.5;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.5;
+        }
     }
+    @media (hover: none) {
+        &:active {
+            opacity: 0.5;
+        }
+    }
+    
     @media (max-width: 73rem) {
         font-size: 1rem;
     }

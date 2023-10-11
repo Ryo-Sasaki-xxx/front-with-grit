@@ -158,7 +158,8 @@ const SInputPassword = styled.input`
 `;
 
 const SP = styled.p`
-    height: 2rem;
+    min-height: 2rem;
+    height: fit-content;
     font-size: 1rem;
     padding-left: 0.5rem;
 `;
