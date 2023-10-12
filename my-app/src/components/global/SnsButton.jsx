@@ -4,8 +4,8 @@ export const SnsButton = (props) => {
     const { instagram, x, width } = props;
     return (
         <SDiv width={width}>
-            <SA href="https://www.instagram.com/" target="_blank"><SImg src={instagram} alt="isntagramリンク" /></SA>
-            <SA href="https://www.instagram.com/" target="_blank"><SImg src={x} alt="xリンク" /></SA>
+            <SA href="https://instagram.com/with.grit/" target="_blank"><SImg src={instagram} alt="isntagramリンク" /></SA>
+            <SA href="https://x.com/with_grit_net/" target="_blank"><SImg src={x} alt="xリンク" /></SA>
         </SDiv>
     )
 };

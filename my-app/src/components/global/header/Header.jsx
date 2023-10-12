@@ -16,12 +16,14 @@ export const Header = () => {
 
 const SHeader = styled.header`
     width: 100%;
-    height: 5rem;
     background: #fff;
     box-sizing: border-box;
     margin: 0;
     display: flex;
     justify-content: center;
+    @media (max-width: 60rem){
+        height: 5rem;
+    }
 `;
 
 const SStickyWrapper = styled.div`
