@@ -51,7 +51,7 @@ export const MainContent = () => {
         result =
             <>
                 <SP>お問い合わせいただきありがとうございます。</SP>
-                <SP2>後日xxxx@with-gritよりご入力いただきましたメールアドレス宛にご返信させていただきます。</SP2>
+                <SP2>後日with.grit0908@gmail.comよりご入力いただきましたメールアドレス宛にご返信させていただきます。</SP2>
                 <SButton onClick={() => setHaveSent(prev => !prev)}>別のお問い合わせをする</SButton>
             </>
     } else {
