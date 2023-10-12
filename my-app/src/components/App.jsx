@@ -3,6 +3,7 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
+import { ScrollTop } from "./global/ScrollTop";
 
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
@@ -34,6 +35,7 @@ export const App = () => {
             <GlobalStyle />
             <BrowserRouter>
                 <IsActiveHumbergerProvider>
+                    <ScrollTop />
                     <Routes>
 
                         <Route path="/" element={<HomePage />}>
